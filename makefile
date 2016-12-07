@@ -4,7 +4,7 @@ INP_OCRED_DIR=$(INP_PARENT_DIR)/ocred_texts
 INP_HADITH_DIR=$(INP_PARENT_DIR)/hadith_alislam
 INP_ALTAFSIR_DIR=$(INP_PARENT_DIR)/altafsir
 
-OUT_PARENT_DIR=../../data/files/prepared
+OUT_PARENT_DIR=../../data/files/jsondump
 OUT_OCRED_DIR=$(OUT_PARENT_DIR)/ocred_texts
 OUT_HADITH_DIR=$(OUT_PARENT_DIR)/hadith_alislam
 OUT_ALTAFSIR_DIR=$(OUT_PARENT_DIR)/altafsir
