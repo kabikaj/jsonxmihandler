@@ -30,7 +30,7 @@ help:
 	@echo "    clean"
 	@echo "        Clean resources"
 	@echo ""
-	@echo "usage: make [help] [all] [clean]"
+	@echo "usage: make [help] [clean]"
 
 final_conversion: clean convert_ocred convert_hadith convert_altafsir
 

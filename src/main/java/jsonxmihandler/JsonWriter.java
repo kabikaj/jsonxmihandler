@@ -179,11 +179,13 @@ public class JsonWriter extends JCasFileWriter_ImplBase {
 
         				} else {
         					//FIXME this is suppose to be an error in the workflow! needs more discussion about what to do
-        					System.err.println("Warning! Subtype os Semantic layer not recognized: " + a + "File name: " + this.getRelativePath(aJCas) + "\n");
+        					System.err.println("Warning! Subtype of Semantic layer not recognized: " + a + "File name: " + this.getRelativePath(aJCas) + 
+        							"\nText included in the annotation = " + a.getCoveredText());
+        					System.err.println("\u001B[31mFATAL ERROR: one or more annotation instances haven't been included in the output file. Fix your errors!\u001B[0m");
         				}
 
         			} else {
-        				System.err.println("Warning! Annotation instance not recognized: " + a + "File name: " + this.getRelativePath(aJCas) + "\n");
+        				System.err.println("\u001B[FATAL ERROR! Annotation instance not recognized: " + a + "File name: " + this.getRelativePath(aJCas) + "\u001B[0m\n");
         			}
         		}
         	}
