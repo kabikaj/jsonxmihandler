@@ -60,6 +60,31 @@ public class Pipeline {
 		 new JCommander(pipeline, args);
 		 
 		 if (pipeline.writer.equals(JSON)) {
+			 
+			 /*System.out.println("[1]" + pipeline.inpath);  //DEBUG
+			 
+			 File[] files = new File(pipeline.inpath).listFiles();
+
+			 for (File file : files)
+			 {
+				 System.out.println("[2]" + pipeline.outpath+"/"+file.getName());  //DEBUG
+				 if (file.isFile())
+				 {
+					 System.out.println("File " + file.getAbsolutePath());
+					 
+					 runPipeline(
+							 createReaderDescription(XmiReader.class,
+									 				 XmiReader.PARAM_SOURCE_LOCATION, file.getAbsolutePath(),
+									 				 XmiReader.PARAM_LANGUAGE, "en",
+									 				 XmiReader.PARAM_LENIENT, true),
+				        
+							 createEngineDescription(JsonWriter.class,
+				        		                	 JsonWriter.PARAM_STRIP_EXTENSION, true,
+				        		                	 JsonWriter.PARAM_TARGET_LOCATION, (String) pipeline.outpath+"/"+file.getName(), 
+							                         JsonWriter.PARAM_USE_DOCUMENT_ID, false));   //DEBUG checking if it fixes the name of the outfile
+				 }
+				
+			 }*/
 		 		 		
 			 runPipeline(
 					 createReaderDescription(XmiReader.class,
@@ -70,9 +95,10 @@ public class Pipeline {
 					 createEngineDescription(JsonWriter.class,
 		        		                	 JsonWriter.PARAM_STRIP_EXTENSION, true,
 		        		                	 JsonWriter.PARAM_TARGET_LOCATION, pipeline.outpath));
+			 
 		 }
 		 else {
-			 /*TODO*/
+			 //TODO probably not...
 		 }
 		 
 	}

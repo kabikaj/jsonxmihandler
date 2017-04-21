@@ -68,9 +68,9 @@ public class JsonWriter extends JCasFileWriter_ImplBase {
 
 	
     public static final String PARAM_FILENAME_SUFFIX = "filenameSuffix";
-    @ConfigurationParameter(name = PARAM_FILENAME_SUFFIX, mandatory = true, defaultValue = ".json")
-    private String filenameSuffix;
     
+    @ConfigurationParameter(name = PARAM_FILENAME_SUFFIX, mandatory = true, defaultValue = ".json")
+    private String filenameSuffix;    
     
     private static String KEY_CONTENT;
     
@@ -126,6 +126,8 @@ public class JsonWriter extends JCasFileWriter_ImplBase {
             docOS = getOutputStream(aJCas, filenameSuffix);
             Iterator<JCas> viewIterator = aJCas.getViewIterator();
             
+            //System.out.println("\u001B[32m" + aJCas.getDocumentAnnotationFs() + "\u001B[0m"); //DEBUG
+            
 			outjson.put(KEY_CONTENT, aJCas.getDocumentText());
             
         	while(viewIterator.hasNext())
@@ -178,10 +180,11 @@ public class JsonWriter extends JCasFileWriter_ImplBase {
             		    	metamotives.add(annInstance.clone());
 
         				} else {
+        					
         					//FIXME this is suppose to be an error in the workflow! needs more discussion about what to do
         					System.err.println("Warning! Subtype of Semantic layer not recognized: " + a + "File name: " + this.getRelativePath(aJCas) + 
         							"\nText included in the annotation = " + a.getCoveredText());
-        					System.err.println("\u001B[31mFATAL ERROR: one or more annotation instances haven't been included in the output file. Fix your errors!\u001B[0m");
+        					System.err.println("\u001B[31mFATAL ERROR: one or more annotation instances haven't been included in the output file because they lack some information. Fix your errors!\u001B[0m");
         				}
 
         			} else {
