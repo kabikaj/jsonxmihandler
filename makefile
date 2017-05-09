@@ -1,3 +1,18 @@
+# Copyright 2017 Alicia Gonzalez Martinez
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+# or implied. See the License for the specific language governing
+# permissions and limitations under the License.
+#
+######################################################################
 
 INP_PARENT_DIR=../../data/files/inprogress
 INP_OCRED_DIR=$(INP_PARENT_DIR)/ocred_texts
@@ -15,11 +30,11 @@ JAVA=java -cp
 PKG=jsonxmihandler
 JAR=target/dependency/*:target/$(PKG)-0.0.1-SNAPSHOT.jar
 
-.PHONY : clean help final_conversion convert_ocred convert_hadith convert_altafsir
+.PHONY : clean help all convert_ocred convert_hadith convert_altafsir
 
 
 help:
-	@echo "    final_conversion"
+	@echo "    all"
 	@echo "        Clean resources and convert xmi files into json"
 	@echo "    convert_ocred"
 	@echo "        convert only sources from ocred texts"
@@ -32,7 +47,7 @@ help:
 	@echo ""
 	@echo "usage: make [help] [clean]"
 
-final_conversion: clean convert_ocred convert_hadith convert_altafsir
+all: clean convert_ocred convert_hadith convert_altafsir
 
 convert_ocred:
 	$(JAVA) $(JAR) $(PKG).Pipeline -i "$(INP_OCRED_DIR)/*.xmi" -o $(OUT_OCRED_DIR) --to json

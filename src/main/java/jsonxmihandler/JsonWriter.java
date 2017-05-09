@@ -1,6 +1,6 @@
-/*******************************************************************************
- * Copyright 2016
- * COBHUNI, Universität Hamburg
+/******************************************************************************
+ * Copyright 2017 Alicia González Martínez
+ * COBHUNI Project, Universität Hamburg
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import org.apache.commons.io.IOUtils;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.text.AnnotationFS;
-import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.descriptor.TypeCapability;
 import org.apache.uima.jcas.JCas;
@@ -46,7 +45,6 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.TagsetDescription;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
-import edu.stanford.nlp.pipeline.Annotation;
 
 import webanno.custom.Page;
 import webanno.custom.Section;
